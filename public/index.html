@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScopePulse - حاسبة عروض الأسعار التفاعلية</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ ScopePulse</h1>
+            <p>أداة حساب نطاق العمل وعروض الأسعار التفاعلية للمستقلين</p>
+        </header>
+
+        <main class="main-content">
+            <!-- لوحة المدخلات -->
+            <section class="card input-section">
+                <h2>بيانات المشروع</h2>
+                <div class="input-group">
+                    <label for="proj-name">اسم المشروع:</label>
+                    <input type="text" id="proj-name" placeholder="مثال: تصميم تطبيق متجر إلكتروني">
+                </div>
+
+                <div class="input-group">
+                    <label for="client-name">اسم العميل:</label>
+                    <input type="text" id="client-name" placeholder="مثال: شركة الأمل">
+                </div>
+
+                <div class="input-group">
+                    <label for="hourly-rate">سعر الساعة ($):</label>
+                    <input type="number" id="hourly-rate" value="25" min="5">
+                </div>
+
+                <button id="calc-btn" class="btn-primary">حساب التكلفة التقديرية 🚀</button>
+            </section>
+
+            <!-- لوحة النتيجة والتفاصيل -->
+            <section class="card result-section">
+                <h2>الملخص المالي</h2>
+                <div class="price-box">
+                    <span>التكلفة الإجمالية التقديرية</span>
+                    <h3 id="total-display">$0.00</h3>
+                </div>
+                <p id="deposit-display" class="deposit-text">الدفعة المقدمة المطلوبة: $0.00</p>
+                
+                <!-- زر الدعم المالي (Buy Me a Coffee) -->
+                <div class="support-box">
+                    <p>هل أعجبتك الخدمة؟ يمكنك دعم تطوير الأدوات المجانية:</p>
+                    <a href="https://www.buymeacoffee.com" target="_blank" class="btn-support">☕ ادعم المشروع بكوب قهوة</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+      </html>
