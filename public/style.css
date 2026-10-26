@@ -1,0 +1,160 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --accent-color: #38bdf8;
+    --text-color: #f8fafc;
+    --text-muted: #94a3b8;
+    --btn-bg: #2563eb;
+    --btn-hover: #1d4ed8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: var(--accent-color);
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: var(--text-muted);
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #475569;
+    background-color: #0f172a;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--btn-bg);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-hover);
+}
+
+.price-box {
+    background-color: #0f172a;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.price-box span {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.price-box h3 {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    margin-top: 5px;
+}
+
+.deposit-text {
+    text-align: center;
+    color: #4ade80;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.support-box {
+    border-top: 1px dashed #475569;
+    padding-top: 15px;
+    text-align: center;
+}
+
+.support-box p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.btn-support {
+    display: inline-block;
+    background-color: #f59e0b;
+    color: #000;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
