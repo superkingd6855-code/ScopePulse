@@ -1,23 +1,24 @@
 :root {
-    --bg-color: #0f172a;
-    --card-bg: #1e293b;
-    --accent-color: #38bdf8;
-    --text-color: #f8fafc;
-    --text-muted: #94a3b8;
-    --btn-bg: #2563eb;
-    --btn-hover: #1d4ed8;
+    --bg-black: #050505;
+    --card-dark: #121212;
+    --border-gray: #27272a;
+    --text-white: #ffffff;
+    --text-muted: #a1a1aa;
+    --accent-silver: #e4e4e7;
+    --btn-white: #ffffff;
+    --btn-black: #000000;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--bg-black);
+    color: var(--text-white);
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -27,28 +28,49 @@ body {
 
 .container {
     width: 100%;
-    max-width: 900px;
+    max-width: 950px;
 }
 
 header {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
-header h1 {
-    color: var(--accent-color);
-    font-size: 2.2rem;
-    margin-bottom: 8px;
+/* حركة التموج الضوئي على الشعار */
+.brand-logo {
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: -1px;
 }
 
-header p {
+.logo-scope {
+    color: #ffffff;
+}
+
+.logo-pulse {
+    background: linear-gradient(90deg, #52525b, #ffffff, #52525b);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: waveShine 3s linear infinite;
+    margin-right: 4px;
+}
+
+@keyframes waveShine {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.tagline {
     color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 6px;
 }
 
 .main-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 24px;
 }
 
 @media (max-width: 768px) {
@@ -58,103 +80,220 @@ header p {
 }
 
 .card {
-    background: var(--card-bg);
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #334155;
+    background: var(--card-dark);
+    border: 1px solid var(--border-gray);
+    border-radius: 14px;
+    padding: 24px;
 }
 
 .card h2 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+    border-bottom: 1px solid var(--border-gray);
+    padding-bottom: 12px;
     margin-bottom: 20px;
-    border-bottom: 1px solid #334155;
-    padding-bottom: 10px;
 }
 
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .input-group label {
     display: block;
-    margin-bottom: 5px;
     color: var(--text-muted);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
 }
 
 .input-group input {
     width: 100%;
-    padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #475569;
-    background-color: #0f172a;
+    padding: 10px 12px;
+    background: #000;
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
     color: #fff;
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
+
+.features-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 10px 0;
+}
+
+.features-header h3 {
+    font-size: 1rem;
+    color: var(--accent-silver);
+}
+
+.feature-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.feature-row input {
+    background: #000;
+    border: 1px solid var(--border-gray);
+    color: #fff;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+}
+
+.feat-name { flex: 2; }
+.feat-hours { flex: 1; }
+.feat-rate { flex: 1; }
 
 .btn-primary {
     width: 100%;
     padding: 12px;
-    background-color: var(--btn-bg);
-    color: white;
+    background: var(--btn-white);
+    color: var(--btn-black);
     border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: bold;
+    border-radius: 8px;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.2s;
-    margin-top: 10px;
+    margin-top: 15px;
+    transition: opacity 0.2s;
 }
 
 .btn-primary:hover {
-    background-color: var(--btn-hover);
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-white);
+    border: 1px solid var(--border-gray);
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
 }
 
 .price-box {
-    background-color: #0f172a;
+    background: #000;
+    border: 1px solid var(--border-gray);
+    border-radius: 10px;
     padding: 20px;
-    border-radius: 8px;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .price-box span {
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .price-box h3 {
-    color: var(--accent-color);
-    font-size: 2.5rem;
-    margin-top: 5px;
+    font-size: 2.6rem;
+    margin-top: 6px;
+    color: #fff;
 }
 
-.deposit-text {
-    text-align: center;
-    color: #4ade80;
-    font-weight: 500;
-    margin-bottom: 25px;
-}
-
-.support-box {
-    border-top: 1px dashed #475569;
-    padding-top: 15px;
-    text-align: center;
-}
-
-.support-box p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 10px;
-}
-
-.btn-support {
-    display: inline-block;
-    background-color: #f59e0b;
-    color: #000;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-weight: bold;
+.details-breakdown p {
     font-size: 0.9rem;
-  }
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.deposit-highlight {
+    color: #ffffff !important;
+    font-weight: 700;
+    margin-top: 10px;
+    border-top: 1px dashed var(--border-gray);
+    padding-top: 10px;
+}
+
+/* بطاقة الدعم المحلية (مصر) */
+.eg-support-card {
+    margin-top: 25px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-gray);
+}
+
+.eg-support-card h4 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.eg-support-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.pay-info {
+    background: #000;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border-gray);
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pay-info strong {
+    color: #fff;
+}
+
+.btn-copy {
+    width: 100%;
+    padding: 8px;
+    background: transparent;
+    border: 1px solid var(--text-white);
+    color: var(--text-white);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-gray);
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin: 0 8px;
+}
+
+.copyright {
+    color: #52525b;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+/* النوافذ المنبثقة */
+.modal {
+    margin: auto;
+    background: var(--card-dark);
+    color: #fff;
+    border: 1px solid var(--border-gray);
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 450px;
+}
+
+.modal-content p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 15px 0;
+    line-height: 1.6;
+}
+
+.close-modal {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    }
