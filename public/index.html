@@ -8,51 +8,117 @@
 </head>
 <body>
     <div class="container">
+        <!-- الهيدر والشعار التفاعلي -->
         <header>
-            <h1>⚡ ScopePulse</h1>
-            <p>أداة حساب نطاق العمل وعروض الأسعار التفاعلية للمستقلين</p>
+            <h1 class="brand-logo">
+                <span class="logo-scope">Scope</span><span class="logo-pulse">Pulse</span>
+            </h1>
+            <p class="tagline">أداة تسعير الخدمات وحساب نطاق العمل التفاعلية للمستقلين</p>
         </header>
 
         <main class="main-content">
-            <!-- لوحة المدخلات -->
+            <!-- قسم المدخلات -->
             <section class="card input-section">
-                <h2>بيانات المشروع</h2>
+                <h2>بيانات المشروع والمهام</h2>
+                
                 <div class="input-group">
                     <label for="proj-name">اسم المشروع:</label>
-                    <input type="text" id="proj-name" placeholder="مثال: تصميم تطبيق متجر إلكتروني">
+                    <input type="text" id="proj-name" placeholder="مثال: تصميم وتطوير متجر إلكتروني">
                 </div>
 
                 <div class="input-group">
                     <label for="client-name">اسم العميل:</label>
-                    <input type="text" id="client-name" placeholder="مثال: شركة الأمل">
+                    <input type="text" id="client-name" placeholder="مثال: شركة الأمل لتكنولوجيا المعلومات">
                 </div>
 
                 <div class="input-group">
-                    <label for="hourly-rate">سعر الساعة ($):</label>
-                    <input type="number" id="hourly-rate" value="25" min="5">
+                    <label for="hourly-rate">سعر الساعة الأساسي ($):</label>
+                    <input type="number" id="hourly-rate" value="25" min="1">
                 </div>
 
-                <button id="calc-btn" class="btn-primary">حساب التكلفة التقديرية 🚀</button>
+                <div class="input-group">
+                    <label for="contingency">نسبة مخاطر العمل / الطوارئ (%):</label>
+                    <input type="number" id="contingency" value="10" min="0" max="50">
+                </div>
+
+                <!-- المهام التفاعلية -->
+                <div class="features-header">
+                    <h3>تفاصيل بنود الخدمة</h3>
+                    <button type="button" id="add-feature-btn" class="btn-secondary">+ إضافة بند</button>
+                </div>
+                <div id="features-list">
+                    <div class="feature-row">
+                        <input type="text" class="feat-name" placeholder="اسم البند (مثال: تصميم الواجهات)" value="تصميم واجهات المستخدم">
+                        <input type="number" class="feat-hours" placeholder="الساعات" value="10">
+                        <input type="number" class="feat-rate" placeholder="السعر/ساعة" value="25">
+                    </div>
+                </div>
+
+                <button id="calc-btn" class="btn-primary">حساب التكلفة التقديرية بدقة 🚀</button>
             </section>
 
-            <!-- لوحة النتيجة والتفاصيل -->
+            <!-- قسم النتائج والتبرع المحلي -->
             <section class="card result-section">
-                <h2>الملخص المالي</h2>
+                <h2>الملخص المالي المعتمد</h2>
                 <div class="price-box">
                     <span>التكلفة الإجمالية التقديرية</span>
                     <h3 id="total-display">$0.00</h3>
                 </div>
-                <p id="deposit-display" class="deposit-text">الدفعة المقدمة المطلوبة: $0.00</p>
+
+                <div class="details-breakdown">
+                    <p id="subtotal-display">المجموع الفرعي: $0.00</p>
+                    <p id="contingency-display">هامش الطوارئ: $0.00</p>
+                    <p id="deposit-display" class="deposit-highlight">الدفعة المقدمة المطلوبة (50%): $0.00</p>
+                </div>
+
+                <!-- قسم دعم المنصة عبر InstaPay / ميزة في مصر -->
+
+            
                 
-                <!-- زر الدعم المالي (معدل ليعمل في مصر عبر PayPal أو Ko-fi) -->
-                <div class="support-box">
-                    <p>هل أعجبتك الخدمة؟ يمكنك دعم تطوير الأدوات المجانية:</p>
-                    <a href="https://paypal.me/YOUR_USERNAME" target="_blank" class="btn-support">💳 ادعم المشروع عبر PayPal / Ko-fi</a>
+                    
+                    <div class="pay-info">
+                        <span>عنوان الدفع اللحظي (InstaPay IPA):</span>
+                        <strong id="instapay-ipa">YOUR_USERNAME@instapay</strong>
+                    </div>
+
+                    <div class="pay-info">
+                        <span>رقم بطاقة ميزة / المحفظة:</span>
+                        <strong id="meeza-num">01000000000</strong>
+                    </div>
+
+                    <button id="copy-pay-btn" class="btn-copy">📋 نسخ بيانات التحويل</button>
                 </div>
             </section>
         </main>
+
+        <!-- الفوتر وحقوق الملكية -->
+        <footer>
+            <div class="footer-links">
+                <a href="#" id="open-about">من نحن</a> | 
+                <a href="#" id="open-privacy">سياسة الخصوصية</a>
+            </div>
+            <p class="copyright">© 2026 ScopePulse. جميع الحقوق محفوظة.</p>
+        </footer>
     </div>
+
+    <!-- نافذة من نحن -->
+    <dialog id="about-modal" class="modal">
+        <div class="modal-content">
+            <h3>عن منصة ScopePulse</h3>
+            <p>ScopePulse هي أداة ويب مصغرة موجهة للمستقلين والمبدعين لحساب تكاليف المشاريع وإعداد عروض أسعار تفاعلية بدقة متناهية، مما يمنع اتساع نطاق العمل دون مقابل ويضمن شفافية المعاملات المباشرة.</p>
+            <button class="close-modal">إغلاق</button>
+        </div>
+    </dialog>
+
+    <!-- نافذة سياسة الخصوصية -->
+    <dialog id="privacy-modal" class="modal">
+        <div class="modal-content">
+            <h3>سياسة الخصوصية</h3>
+            <p>نحن نحترم خصوصيتك كلياً. منصة ScopePulse لا تقوم بتخزين أو مشاركة أي بيانات مالية أو أسماء مشاريع على خوادم خارجية؛ جميع الحسابات تعالج لحظياً في بيئة مشفرة وتزول بمجرد إغلاق الصفحة.</p>
+            <button class="close-modal">إغلاق</button>
+        </div>
+    </dialog>
 
     <script src="app.js"></script>
 </body>
-                                                                </html>
+</html>
